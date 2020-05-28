@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-enum Mode {
+export enum Mode {
   Login,
   Connecting,
   CharacterSelect,

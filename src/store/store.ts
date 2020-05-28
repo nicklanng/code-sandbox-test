@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
 });
 
 const store = configureStore({
+  devTools: { name: "Mundaz" },
   reducer: rootReducer,
   middleware: [epicMiddleware]
 });

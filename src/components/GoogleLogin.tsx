@@ -1,7 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import auth from "../store/auth";
 import { AppDispatch } from "../store/store";
+
+import auth from "../store/auth";
 
 import GoogleLogin from "react-google-login";
 
