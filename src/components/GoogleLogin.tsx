@@ -15,6 +15,7 @@ const OurGoogleLogin: React.FC = () => {
       clientId="203228902423-04faqdjemmu8nn10h245rtddh0tbe03v.apps.googleusercontent.com"
       onSuccess={r => dispatch(auth.actions.fetchedGoogleToken(r.accessToken))}
       onFailure={r => console.log(r)}
+      isSignedIn={true}
     />
   );
 };
