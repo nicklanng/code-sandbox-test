@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, Action } from "@reduxjs/toolkit";
 
 export enum Mode {
   Login,
@@ -13,9 +13,7 @@ const mode = createSlice({
   name: "mode",
   initialState: Mode.Login,
   reducers: {
-    transitionState: (state, action: PayloadAction<Mode>) => {
-      state = action.payload;
-    }
+    connecting: _ => Mode.Connecting
   }
 });
 
