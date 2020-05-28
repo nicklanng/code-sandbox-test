@@ -1,12 +1,12 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-// import { createEpicMiddleware } from "redux-observable";
+import { createEpicMiddleware } from "redux-observable";
 
 import auth from "./auth";
 import mode from "./mode";
 
-// import rootEpic from "./epics";
+import rootEpic from "./epics";
 
-// const epicMiddleware = createEpicMiddleware();
+const epicMiddleware = createEpicMiddleware();
 
 const rootReducer = combineReducers({
   auth: auth.reducer,
@@ -14,11 +14,11 @@ const rootReducer = combineReducers({
 });
 
 const store = configureStore({
-  reducer: rootReducer
-  // middleware: [epicMiddleware]
+  reducer: rootReducer,
+  middleware: [epicMiddleware]
 });
 
-// epicMiddleware.run(rootEpic);
+epicMiddleware.run(rootEpic);
 
 export type AppDispatch = typeof store.dispatch;
 export type AppState = ReturnType<typeof rootReducer>;
