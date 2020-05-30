@@ -1,10 +1,10 @@
 import { CustomPIXIComponent, withApp } from "react-pixi-fiber";
+import seedrandom from "seedrandom";
 import * as PIXI from "pixi.js";
 import terrain from "../assets/gfx/terrain";
 
-import seedrandom from "seedrandom";
-
 const TYPE = "Map";
+const MAP_SIZE = 8;
 
 interface Props {
   app: PIXI.Application;
@@ -21,8 +21,8 @@ const buildMapTexture = (app, chunkId) => {
     height: 2048
   });
 
-  for (let x = 0; x < 128; x++) {
-    for (let y = 0; y < 128; y++) {
+  for (let x = 0; x < MAP_SIZE; x++) {
+    for (let y = 0; y < MAP_SIZE; y++) {
       let rnd = Math.abs(rng.int32() % terrain.grass1.length);
       let grass = new PIXI.Sprite(terrain.grass1[rnd]);
       grass.position.x = x * 16;

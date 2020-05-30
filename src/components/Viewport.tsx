@@ -1,4 +1,3 @@
-import { Viewport } from "pixi-viewport";
 import { CustomPIXIComponent, withApp } from "react-pixi-fiber";
 import * as PIXI from "pixi.js";
 
@@ -6,26 +5,25 @@ PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
 const TYPE = "Viewport";
 
+interface Props {
+  target: PIXI.IPoint;
+  screenSize: PIXI.IPoint;
+  offset: PIXI.IPoint;
+}
+
 export const behavior = {
-  customDisplayObject: props => {
-    const viewport = new Viewport({
-      screenWidth: 512,
-      screenHeight: 512,
-      worldWidth: 2048,
-      worldHeight: 2048,
-      ticker: props.app.ticker,
-      interaction: props.app.renderer.plugins.interaction // the interaction module is important for wheel to work properly when renderer.view is placed or scaled
-    });
-    viewport.clampZoom({ minScale: 1, maxScale: 4 });
-    viewport.on("drag-start", () => console.log("drag-start"));
-    viewport.on("drag-end", () => console.log("drag-end"));
+  customDisplayObject: (props: Props) => {
+    const { target, screenSize, offset } = props;
+    const scale = 2;
 
-    viewport
-      .drag()
-      .wheel()
-      .decelerate();
+    const viewport = new PIXI.Container();
+    viewport.scale = new PIXI.Point(scale, scale);
+    // viewport.transform.position = new PIXI.Point(256 - 12, 256 - 16);
+    viewport.position.set(
+      screenSize.x / 2 - target.x * 16 * scale + offset.x,
+      screenSize.y / 2 - target.y * 16 * scale + offset.y
+    );
 
-    viewport.scaled = 2;
     return viewport;
   }
 };
