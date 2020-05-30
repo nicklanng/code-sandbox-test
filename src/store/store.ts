@@ -2,6 +2,7 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { createEpicMiddleware } from "redux-observable";
 
 import auth from "./auth";
+import settings from "./settings";
 import mode from "./mode";
 
 import rootEpic from "./epics";
@@ -10,6 +11,7 @@ const epicMiddleware = createEpicMiddleware();
 
 const rootReducer = combineReducers({
   auth: auth.reducer,
+  settings: settings.reducer,
   mode: mode.reducer
 });
 

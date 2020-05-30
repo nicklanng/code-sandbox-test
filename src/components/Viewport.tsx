@@ -14,7 +14,7 @@ interface Props {
 export const behavior = {
   customDisplayObject: (props: Props) => {
     const { target, screenSize, offset } = props;
-    const scale = 2;
+    const scale = 3;
 
     const viewport = new PIXI.Container();
     viewport.scale = new PIXI.Point(scale, scale);
