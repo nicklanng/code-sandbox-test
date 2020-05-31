@@ -1,7 +1,8 @@
-import { createSlice, Action } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export enum Mode {
   Login,
+  LoadingAssets,
   Connecting,
   CharacterSelect,
   CharacterCreation,
@@ -13,6 +14,7 @@ const mode = createSlice({
   name: "mode",
   initialState: Mode.Login,
   reducers: {
+    LoadingAssets: _ => Mode.LoadingAssets,
     connecting: _ => Mode.Connecting
   }
 });

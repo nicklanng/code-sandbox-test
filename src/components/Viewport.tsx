@@ -23,6 +23,12 @@ export const behavior = {
       screenSize.x / 2 - target.x * 16 * scale + offset.x,
       screenSize.y / 2 - target.y * 16 * scale + offset.y
     );
+    viewport.interactive = true;
+    viewport.on("pointerdown", e => {
+      let x = e.data.global.x - e.target.transform.worldTransform.tx;
+      let y = e.data.global.y - e.target.transform.worldTransform.ty;
+      console.log(Math.floor(x / scale / 16), Math.floor(y / scale / 16));
+    });
 
     return viewport;
   },

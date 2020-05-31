@@ -40,7 +40,8 @@ export const behavior = {
 
     let texture = buildMapTexture(app, chunkId);
 
-    return PIXI.Sprite.from(texture);
+    const sprite = PIXI.Sprite.from(texture);
+    return sprite;
   },
   customApplyProps: (
     instance: PIXI.Sprite,
