@@ -4,7 +4,7 @@ import * as PIXI from "pixi.js";
 import terrain from "../assets/gfx/terrain";
 
 const TYPE = "Map";
-const MAP_SIZE = 8;
+const MAP_SIZE = 64;
 
 interface Props {
   app: PIXI.Application;

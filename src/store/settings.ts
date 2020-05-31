@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const mode = createSlice({
   name: "mode",
   initialState: {
-    windowSize: { x: 0, y: 0 }
+    windowSize: { x: window.innerWidth, y: window.innerHeight }
   },
   reducers: {
     windowResized: (state, action: PayloadAction<any>) => {

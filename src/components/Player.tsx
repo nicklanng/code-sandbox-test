@@ -16,7 +16,7 @@ export const behavior = {
 
     const instance = PIXI.Sprite.from(playerTexture.down[0]);
     instance.position = new PIXI.Point(position.x * 16, position.y * 16);
-    instance.anchor.set(0.1, 0.6);
+    instance.anchor.set(0.15, 0.5);
     return instance;
   },
   customApplyProps: (
