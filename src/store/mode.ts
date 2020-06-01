@@ -14,8 +14,8 @@ const mode = createSlice({
   name: "mode",
   initialState: Mode.Login,
   reducers: {
-    LoadingAssets: _ => Mode.LoadingAssets,
-    connecting: _ => Mode.Connecting
+    LoadingAssets: () => Mode.LoadingAssets,
+    connecting: () => Mode.Connecting
   }
 });
 

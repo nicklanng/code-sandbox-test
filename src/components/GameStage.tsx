@@ -2,33 +2,20 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Stage } from "react-pixi-fiber";
 
-import Viewport from "./Viewport";
-import Map from "./Map";
-import Player from "./Player";
+import InWorld from "./inWorld/InWorld";
 
-const GameStage = () => {
-  const windowSize = useSelector((state: any) => state.settings.windowSize);
-  const playerPosition = useSelector((state: any) => state.player.position);
+export default () => {
+  const inWorldState = useSelector((state: any) => state.inWorld);
 
   const options = {
     backgroundColor: 0x6495ed,
-    width: windowSize.x,
-    height: windowSize.y
+    width: inWorldState.windowSize.x,
+    height: inWorldState.windowSize.y
   };
 
   return (
     <Stage options={options}>
-      <Viewport
-        screenSize={windowSize}
-        target={playerPosition}
-        offset={{ x: -24, y: -16 }}
-      >
-        <Map chunkId={4345} />
-        <Player position={playerPosition} />
-        <Player position={{ x: 1, y: 1 }} />
-      </Viewport>
+      <InWorld state={inWorldState} />
     </Stage>
   );
 };
-
-export default GameStage;

@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 
 import store from "./store/store";
-import settings from "./store/settings";
+import settings from "./store/inWorld";
 
 import GameStage from "./components/GameStage";
 
