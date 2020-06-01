@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const behavior = {
-  customDisplayObject: props => {
+  customDisplayObject: (props: Props) => {
     let { position } = props;
 
     const instance = PIXI.Sprite.from(playerTexture.down[0]);

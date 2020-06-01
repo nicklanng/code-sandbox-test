@@ -11,7 +11,7 @@ interface Props {
   chunkId: string;
 }
 
-const buildMapTexture = (app, chunkId) => {
+const buildMapTexture = (app: PIXI.Application, chunkId: string) => {
   let rng = seedrandom(chunkId);
 
   let now = new Date();
@@ -35,7 +35,7 @@ const buildMapTexture = (app, chunkId) => {
 };
 
 export const behavior = {
-  customDisplayObject: props => {
+  customDisplayObject: (props: Props) => {
     let { app, chunkId } = props;
 
     let texture = buildMapTexture(app, chunkId);

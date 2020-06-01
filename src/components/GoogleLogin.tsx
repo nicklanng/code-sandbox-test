@@ -6,7 +6,7 @@ import auth from "../store/auth";
 
 import GoogleLogin from "react-google-login";
 
-const OurGoogleLogin: React.FC = () => {
+const OurGoogleLogin = () => {
   const dispatch: AppDispatch = useDispatch();
 
   return (

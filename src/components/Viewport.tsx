@@ -24,7 +24,7 @@ export const behavior = {
       screenSize.y / 2 - target.y * 16 * scale + offset.y
     );
     viewport.interactive = true;
-    viewport.on("pointerdown", e => {
+    viewport.on("pointerdown", (e: any) => {
       let x = e.data.global.x - e.target.transform.worldTransform.tx;
       let y = e.data.global.y - e.target.transform.worldTransform.ty;
       console.log(Math.floor(x / scale / 16), Math.floor(y / scale / 16));

@@ -6,9 +6,9 @@ import Viewport from "./Viewport";
 import Map from "./Map";
 import Player from "./Player";
 
-const GameStage = props => {
-  const windowSize = useSelector(state => state.settings.windowSize);
-  const playerPosition = useSelector(state => state.player.position);
+const GameStage = () => {
+  const windowSize = useSelector((state: any) => state.settings.windowSize);
+  const playerPosition = useSelector((state: any) => state.player.position);
 
   const options = {
     backgroundColor: 0x6495ed,
