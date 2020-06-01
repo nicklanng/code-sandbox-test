@@ -6,22 +6,22 @@ PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
 const TYPE = "Viewport";
 const scale = 3;
+const offset = { x: -24, y: -16 }
 
 interface IProps {
   target: IVector2;
-  screenSize: IVector2;
-  offset: IVector2;
+  size: IVector2;
 }
 
 export const behavior = {
   customDisplayObject: (props: IProps) => {
-    const { target, screenSize, offset } = props;
+    const { target, size } = props;
 
     const viewport = new PIXI.Container();
     viewport.scale = new PIXI.Point(scale, scale);
     viewport.position = new PIXI.Point(
-      screenSize.x / 2 - target.x * 16 * scale + offset.x,
-      screenSize.y / 2 - target.y * 16 * scale + offset.y
+      size.x / 2 - target.x * 16 * scale + offset.x,
+      size.y / 2 - target.y * 16 * scale + offset.y
     );
     viewport.interactive = true;
     viewport.on("pointerdown", (e: any) => {
@@ -37,10 +37,10 @@ export const behavior = {
     oldProps: IProps,
     newProps: IProps
   ) => {
-    const { target, screenSize, offset } = newProps;
+    const { target, size } = newProps;
     instance.position = new PIXI.Point(
-      screenSize.x / 2 - target.x * 16 * scale + offset.x,
-      screenSize.y / 2 - target.y * 16 * scale + offset.y
+      size.x / 2 - target.x * 16 * scale + offset.x,
+      size.y / 2 - target.y * 16 * scale + offset.y
     );
   }
 };

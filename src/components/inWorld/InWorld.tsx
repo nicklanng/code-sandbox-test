@@ -11,14 +11,11 @@ interface IProps {
 }
 
 const InWorld = (props: IProps) => {
+  const { state } = props;
   return (
-    <Viewport
-      screenSize={props.state.windowSize}
-      target={{ x: 0, y: 0 }}
-      offset={{ x: -24, y: -16 }}
-    >
+    <Viewport size={state.windowSize} target={state.player.position} >
       <Map chunkId="4345" />
-      <Player position={{ x: 0, y: 0 }} />
+      <Player position={state.player.position} />
       <Player position={{ x: 1, y: 1 }} />
     </Viewport>
   )

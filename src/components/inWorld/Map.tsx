@@ -2,8 +2,9 @@ import { CustomPIXIComponent, withApp } from "react-pixi-fiber";
 import seedrandom from "seedrandom";
 import * as PIXI from "pixi.js";
 import terrain from "../../assets/gfx/terrain";
+import measure from '../../common/measure'
 
-const MAP_SIZE = 64;
+const MAP_SIZE = 128;
 
 interface Props {
   app: PIXI.Application;
@@ -12,8 +13,6 @@ interface Props {
 
 const buildMapTexture = (app: PIXI.Application, chunkId: string) => {
   let rng = seedrandom(chunkId);
-
-  let now = new Date();
 
   let renderTexture = PIXI.RenderTexture.create({
     width: 2048,
@@ -38,7 +37,7 @@ export const behavior = {
   customDisplayObject: (props: Props) => {
     let { app, chunkId } = props;
 
-    let texture = buildMapTexture(app, chunkId);
+    let texture = measure(buildMapTexture, app, chunkId);
 
     const sprite = PIXI.Sprite.from(texture);
     return sprite;
@@ -50,9 +49,7 @@ export const behavior = {
   ) => {
     let { app, chunkId } = newProps;
 
-    if (chunkId === oldProps.chunkId) {
-      return;
-    }
+    if (chunkId === oldProps.chunkId) return;
 
     instance.texture = buildMapTexture(app, chunkId);
   }

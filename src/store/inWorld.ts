@@ -1,8 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import IVector2 from '../common/IVector2'
 
+export interface ICharacter {
+  position: IVector2,
+}
+
 export interface IState {
   windowSize: IVector2
+  player: ICharacter
 }
 
 const mode = createSlice({
